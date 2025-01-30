@@ -44,10 +44,10 @@ jobs:
           - distro: rockylinux9
             playbook: converge.yml
             experimental: false
-          - distro: ubuntu2004
+          - distro: ubuntu2404
             playbook: converge.yml
             experimental: false
-          - distro: debian10
+          - distro: debian12
             playbook: converge.yml
             experimental: false
 
