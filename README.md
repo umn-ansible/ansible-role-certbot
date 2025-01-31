@@ -1,6 +1,6 @@
 # Ansible Role: Certbot (for Let's Encrypt)
 
-[![CI](https://github.com/geerlingguy/ansible-role-certbot/workflows/CI/badge.svg?event=push)](https://github.com/geerlingguy/ansible-role-certbot/actions?query=workflow%3ACI)
+[![CI](https://github.com/geerlingguy/ansible-role-certbot/actions/workflows/ci.yml/badge.svg)](https://github.com/geerlingguy/ansible-role-certbot/actions/workflows/ci.yml)
 
 Installs and configures Certbot (for Let's Encrypt).
 
