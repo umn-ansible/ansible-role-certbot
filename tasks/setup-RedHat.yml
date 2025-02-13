@@ -1,11 +1,20 @@
 ---
 # See: https://github.com/geerlingguy/ansible-role-certbot/issues/107
-- name: Ensure dnf-plugins are installed on Rocky/AlmaLinux.
+- name: Ensure dnf-plugins are installed on Rocky/AlmaLinux/RHEL.
   yum:
     name: dnf-plugins-core
     state: present
 
-- name: Enable DNF module for Rocky/AlmaLinux.
+- name: Detect if running on RHEL.
+  command: cat /etc/redhat-release
+  register: redhat_release
+  changed_when: false
+
+- name: Enable the appropriate DNF module.
   shell: |
+    {% if 'Red Hat Enterprise Linux' in redhat_release.stdout %}
+    dnf config-manager --set-enabled codeready-builder-for-rhel-9-x86_64-rpms
+    {% else %}
     dnf config-manager --set-enabled crb
+    {% endif %}
   changed_when: false
